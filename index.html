@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My GitHub Pages Portfolio</title>
     
-    <!-- Load Tailwind CSS for easy, responsive styling --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Tailwind CSS for easy, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for the Inter font and smooth transitions */
         body {
@@ -13,16 +14,41 @@
             transition: all 0.4s ease-in-out; /* Smooth transition for background */
         }
 
+        /* --- Theme-Specific Global Styles --- */
+
         /* --- Dark Theme (Default) --- */
         body[data-theme='dark'] {
-            /* Now loading from your GitHub repository /images/ folder */
-            background-image: url('images/Untitled.png'); 
+            /* NEW: Using the uploaded Untitled.jpg for the dark theme background */
+            background-image: url('Untitled.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-color: #000; /* Fallback for dark theme */
         }
+        
+        /* Dark Theme: Navbar Background */
+        body[data-theme='dark'] #navbar,
+        body[data-theme='dark'] #mobile-menu {
+            background-color: #1f2937; /* Equivalent to gray-800 for contrast */
+        }
+
+        /* Dark Theme: Link Appearance (White Text + Semi-Blue Hover) */
+        body[data-theme='dark'] .nav-link-item,
+        body[data-theme='dark'] #socials-button,
+        body[data-theme='dark'] .dropdown-link,
+        body[data-theme='dark'] .mobile-link {
+            color: #ffffff; /* White Text */
+            background-color: transparent;
+        }
+        body[data-theme='dark'] .nav-link-item:hover,
+        body[data-theme='dark'] #socials-button:hover,
+        body[data-theme='dark'] .dropdown-link:hover,
+        body[data-theme='dark'] .mobile-link:hover {
+            background-color: rgba(59, 130, 246, 0.2); /* Semi-blue hover (Blue-500 @ 20% opacity) */
+            color: #ffffff; /* Keep text white on hover for contrast */
+        }
+
 
         /* --- Light Theme (Override) --- */
         body[data-theme='light'] {
@@ -30,13 +56,42 @@
             background-color: #fff; /* White background */
             color: #1f2937; /* Default dark text color for body */
         }
-
-        /* Custom selector for the dropdown menu background in light mode */
-        body[data-theme='light'] #socials-dropdown {
-            background-color: #fff;
+        
+        /* Light Theme: Navbar Background */
+        body[data-theme='light'] #navbar,
+        body[data-theme='light'] #mobile-menu {
+            background-color: #ffffff; /* White background */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
         }
 
-        /* Style for icons within navigation links (Adjusted to normal size: ~1.15rem / 18-19px) */
+        /* Light Theme: Dropdown Menu Background */
+        body[data-theme='light'] #socials-dropdown {
+            background-color: #ffffff;
+        }
+
+        /* Light Theme: Link Appearance (Black Text + Semi-Red Hover) */
+        body[data-theme='light'] .nav-link-item,
+        body[data-theme='light'] #socials-button,
+        body[data-theme='light'] .dropdown-link,
+        body[data-theme='light'] .mobile-link {
+            color: #1f2937; /* Black/Dark Text */
+            background-color: transparent;
+        }
+        body[data-theme='light'] .nav-link-item:hover,
+        body[data-theme='light'] #socials-button:hover,
+        body[data-theme='light'] .dropdown-link:hover,
+        body[data-theme='light'] .mobile-link:hover {
+            background-color: rgba(239, 68, 68, 0.2); /* Semi-red hover (Red-500 @ 20% opacity) */
+            color: #1f2937; /* Keep text black/dark on hover */
+        }
+
+        /* Fix text for the "Socials:" label in mobile menu in light theme */
+        body[data-theme='light'] .mobile-link-text {
+            color: #4b5563; /* gray-600 */
+        }
+
+
+        /* Style for icons within navigation links */
         .nav-icon {
             width: 1.15rem; /* ~18.4px */
             height: 1.15rem; /* ~18.4px */
@@ -48,97 +103,264 @@
         body[data-theme='light'] .nav-icon {
             filter: invert(0); /* Normal colors for light background */
         }
-
+        
+        /* The iframe-container CSS is removed as the iframe is no longer in the main content area. */
     </style>
 </head>
-<!-- Initial state is set to dark, but JavaScript will load preference from localStorage --><body class="min-h-screen" data-theme="dark"> 
+<!-- Initial state is set to dark, but JavaScript will load preference from localStorage -->
+<body class="min-h-screen" data-theme="dark"> 
     
-    <!-- Navigation Bar (Fixed at Top) --><nav id="navbar" class="fixed top-0 left-0 right-0 z-50 shadow-lg bg-gray-900 transition-colors duration-500">
+    <!-- Navigation Bar (Fixed at Top) -->
+    <!-- Removed conflicting color classes, relying on custom CSS now -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 shadow-lg transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 
-                <!-- Logo/Home Link --><a id="nav-logo" href="index.html" class="text-white text-xl font-bold tracking-wider transition-colors duration-500">
+                <!-- Logo/Home Link -->
+                <!-- Logo text color is set to white by default, will need theme awareness if the background is white -->
+                <a id="nav-logo" href="index.html" class="text-white dark:text-white text-xl font-bold tracking-wider transition-colors duration-500">
                     VFATZsMIDIs.github.io
                 </a>
                 
-                <!-- Desktop Navigation Links --><div class="hidden md:flex space-x-1 lg:space-x-4">
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-1 lg:space-x-4">
                     
-                    <!-- HOME link with local icon path --><a href="index.html" class="nav-link-item text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 inline-flex items-center gap-1">
-                        <img src="images/home_icon.png" alt="Home Icon" class="nav-icon">Home
+                    <!-- HOME link -->
+                    <!-- Removed text/hover classes -->
+                    <a href="index.html" class="nav-link-item px-3 py-2 rounded-md text-sm font-medium transition duration-150">
+                        Home
+                    </a>
+
+                    <!-- PROJECTS link -->
+                    <a href="#" class="nav-link-item px-3 py-2 rounded-md text-sm font-medium transition duration-150">
+                        Projects
                     </a>
                     
-                    <!-- PROJECTS link with local icon path --><a href="projects.html" class="nav-link-item text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 inline-flex items-center gap-1">
-                        <img src="images/projects_icon.png" alt="Projects Icon" class="nav-icon">Projects
+                    <!-- MIDI link -->
+                    <a href="#" class="nav-link-item px-3 py-2 rounded-md text-sm font-medium transition duration-150">
+                        MIDI
                     </a>
                     
-                    <!-- Socials (Dropdown for desktop view) --><div class="relative group">
-                        <button onclick="toggleSocialDropdown()" id="socials-button" class="nav-link-item text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 flex items-center gap-1">
+                    <!-- SoundFont link -->
+                    <a href="#" class="nav-link-item px-3 py-2 rounded-md text-sm font-medium transition duration-150">
+                        SoundFont
+                    </a>
+                    
+                    <!-- Socials (Dropdown for desktop view) -->
+                    <div class="relative group">
+                        <!-- Removed text/hover classes -->
+                        <button onclick="toggleSocialDropdown()" id="socials-button" class="nav-link-item px-3 py-2 rounded-md text-sm font-medium transition duration-150 flex items-center gap-1">
                             Socials
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <!-- Dropdown Menu --><div id="socials-dropdown" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 origin-top-right hidden z-10 transition-colors duration-500">
+                        <!-- Dropdown Menu -->
+                        <div id="socials-dropdown" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 origin-top-right hidden z-10 transition-colors duration-500">
                             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="socials-button">
-                                <a href="https://www.youtube.com/@vfatzs.midis.official" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md dropdown-link">
+                                <!-- Removed text/hover classes, relying on .dropdown-link CSS -->
+                                <a href="https://www.youtube.com/@vfatzs.midis.official" target="_blank" class="block px-4 py-2 text-sm rounded-md dropdown-link">
                                     Official YouTube
                                 </a>
-                                <a href="https://youtube.com/@vfatzs_midis_something_video" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md dropdown-link">
+                                <a href="https://youtube.com/@vfatzs_midis_something_video" target="_blank" class="block px-4 py-2 text-sm rounded-md dropdown-link">
                                     VFATZs MIDIs Extended
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- MIDIS link with updated icon path --><a href="#midi-drive-link" target="_blank" class="nav-link-item text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 inline-flex items-center gap-1">
-                        <img src="images/midi_file_icon.png" alt="MIDI File Icon" class="nav-icon">MIDIs
-                    </a>
-                    
-                    <!-- SOUNDFONT link with updated icon path --><a href="#soundfont-drive-link" target="_blank" class="nav-link-item text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 inline-flex items-center gap-1">
-                        <img src="images/soundfont_folder_icon.png" alt="SoundFont Folder Icon" class="nav-icon">SoundFont
-                    </a>
-                    
-                    <!-- ABOUT ME link with local icon path --><a href="about.html" class="nav-link-item text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 inline-flex items-center gap-1">
-                        <img src="images/about_me_icon.png" alt="About Me Icon" class="nav-icon">About Me
+                    <!-- Removed "My most viewed video!" link -->
+                </div>
+                
+                <!-- Statistics Link (Replaced Live Sub Count) -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <!-- Link to the reliable Social Blade statistics page -->
+                    <a href="https://socialblade.com/youtube/channel/UCLxsPfirLrkJ_DR0YWOji1Q/live" target="_blank" class="nav-link-item bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full text-xs font-bold transition duration-150 shadow-md">
+                        Statistics
                     </a>
                 </div>
                 
-                <!-- Theme Toggle Switch --><button onclick="toggleTheme()" class="p-2 rounded-full transition duration-300 focus:outline-none bg-gray-700 hover:bg-gray-600">
-                    <!-- Sun Icon (for Dark Mode) --><svg id="theme-icon-dark" class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    <!-- Moon Icon (for Light Mode) --><svg id="theme-icon-light" class="w-5 h-5 text-gray-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <!-- Theme Toggle Switch -->
+                <button onclick="toggleTheme()" class="p-2 rounded-full transition duration-300 focus:outline-none bg-gray-700 hover:bg-gray-600">
+                    <!-- Sun Icon (for Dark Mode) -->
+                    <svg id="theme-icon-dark" class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <!-- Moon Icon (for Light Mode) -->
+                    <svg id="theme-icon-light" class="w-5 h-5 text-gray-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                 </button>
 
-                <!-- Mobile Menu Button (Hamburger) --><button onclick="toggleMobileMenu()" id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none focus:text-white transition-colors duration-500">
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button onclick="toggleMobileMenu()" id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none focus:text-white transition-colors duration-500">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Hidden by default) --><div id="mobile-menu" class="md:hidden hidden bg-gray-900 transition-colors duration-500">
+        <!-- Mobile Menu (Hidden by default) -->
+        <!-- Removed conflicting color classes, relying on custom CSS now -->
+        <div id="mobile-menu" class="md:hidden hidden transition-colors duration-500">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <!-- Mobile Home link with local icon path --><a href="index.html" class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium block inline-flex items-center gap-1">
-                    <img src="images/home_icon.png" alt="Home Icon" class="nav-icon">Home
+                
+                <!-- Mobile Home link -->
+                <a href="index.html" class="mobile-link px-3 py-2 rounded-md text-base font-medium block">
+                    Home
                 </a>
-                <!-- Mobile Projects link with local icon path --><a href="projects.html" class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium block inline-flex items-center gap-1">
-                    <img src="images/projects_icon.png" alt="Projects Icon" class="nav-icon">Projects
+
+                <!-- Mobile Projects link -->
+                <a href="#" class="mobile-link px-3 py-2 rounded-md text-base font-medium block">
+                    Projects
                 </a>
                 
-                <!-- Mobile Socials Sub-links --><div class="pl-4">
+                <!-- Mobile MIDI link -->
+                <a href="#" class="mobile-link px-3 py-2 rounded-md text-base font-medium block">
+                    MIDI
+                </a>
+                
+                <!-- Mobile SoundFont link -->
+                <a href="#" class="mobile-link px-3 py-2 rounded-md text-base font-medium block">
+                    SoundFont
+                </a>
+                
+                <!-- Mobile Socials Sub-links -->
+                <div class="pl-4">
                     <span class="block text-gray-400 text-sm font-medium py-1 mobile-link-text">Socials:</span>
-                    <a href="https://www.youtube.com/@vfatzs.midis.official" target="_blank" class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium block">Official YouTube</a>
-                    <a href="https://youtube.com/@vfatzs_midis_something_video" target="_blank" class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium block">VFATZs MIDIs Extended</a>
+                    <a href="https://www.youtube.com/@vfatzs.midis.official" target="_blank" class="mobile-link px-3 py-2 rounded-md text-sm font-medium block">Official YouTube</a>
+                    <a href="https://youtube.com/@vfatzs_midis_something_video" target="_blank" class="mobile-link px-3 py-2 rounded-md text-sm font-medium block">VFATZs MIDIs Extended</a>
                 </div>
                 
-                <!-- Mobile MIDIs link with updated icon path --><a href="#midi-drive-link" target="_blank" class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium block inline-flex items-center gap-1">
-                    <img src="images/midi_file_icon.png" alt="MIDI File Icon" class="nav-icon">MIDIs
+                <!-- Mobile Statistics Link (Replaced Live Sub Count) -->
+                <a href="https://socialblade.com/youtube/channel/UCLxsPfirLrkJ_DR0YWOji1Q/live" target="_blank" class="mobile-link bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md text-base font-medium block text-center mt-2">
+                    Statistics
                 </a>
-                <!-- Mobile SoundFont link with updated icon path --><a href="#soundfont-drive-link" target="_blank" class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium block inline-flex items-center gap-1">
-                    <img src="images/soundfont_folder_icon.png" alt="SoundFont Folder Icon" class="nav-icon">SoundFont
-                </a>
-                <!-- Mobile About Me link with local icon path --><a href="about.html" class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium block inline-flex items-center gap-1">
-                    <img src="images/about_me_icon.png" alt="About Me Icon" class="nav-icon">About Me
-                </a>
+                
             </div>
         </div>
     </nav>
 
-    <!-- Main Content Card Wrapper --><main class="pt-20 flex items-center justify-center p-4">
-        <!-- Card: uses dynamic classes based on theme --><div id="content-card"
+    <!-- Main Content Card Wrapper -->
+    <main class="pt-20 flex items-center justify-center p-4">
+        <!-- Card: Adjusted opacity to .95 for better readability over busy background -->
+        <div id="content-card" class="w-full max-w-4xl p-8 rounded-xl shadow-2xl bg-white bg-opacity-95 dark:bg-gray-800 dark:bg-opacity-95 transition-colors duration-500 text-gray-800 dark:text-gray-200">
+            <!-- New Welcome Header -->
+            <h1 class="text-3xl sm:text-4xl font-extrabold mb-6 text-center text-gray-900 dark:text-white">
+                Welcome to VFATZs MIDIs Website!
+            </h1>
+
+            <!-- YouTube Video Embed (You can uncomment this later when you are ready to embed the video) -->
+            <!-- <div class="aspect-w-16 aspect-h-9 mb-6">
+                <iframe src="https://www.youtube.com/embed/0_JjQvhVHjY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-96 rounded-lg shadow-xl"></iframe>
+            </div> -->
+
+            <p class="text-center text-lg mt-4">
+                Hello there! Welcome to my website! ^^ Feel free to explore everything in here :)
+            </p>
+            
+            <p class="text-center text-sm mt-8 text-gray-500 dark:text-gray-400">
+                (im still waiting for my trusted role)
+            </p>
+        </div>
+    </main>
+
+    <!-- JavaScript for Theme Toggle, Mobile Menu, and Social Dropdown -->
+    <script>
+        // Use a function to safely access global variables
+        function initializeApp() {
+            // Theme setup
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', theme);
+            updateThemeIcons(theme);
+
+            // Set up event listeners and initial states
+            document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+            document.getElementById('socials-button').addEventListener('click', toggleSocialDropdown);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcons(newTheme);
+
+            // Update logo color dynamically based on the new theme
+            const logo = document.getElementById('nav-logo');
+            const button = document.getElementById('mobile-menu-button');
+
+            if (logo) {
+                if (newTheme === 'light') {
+                    // In light mode, the navbar is white, so the logo text should be dark
+                    logo.classList.remove('text-white');
+                    logo.classList.add('text-gray-900');
+                } else {
+                    // In dark mode, the navbar is dark, so the logo text should be white
+                    logo.classList.remove('text-gray-900');
+                    logo.classList.add('text-white');
+                }
+            }
+
+            if (button) {
+                // The mobile menu button also needs to be visible against both backgrounds
+                if (newTheme === 'light') {
+                    button.classList.remove('text-gray-300');
+                    button.classList.add('text-gray-700');
+                } else {
+                    button.classList.remove('text-gray-700');
+                    button.classList.add('text-gray-300');
+                }
+            }
+        }
+
+        function updateThemeIcons(theme) {
+            const iconDark = document.getElementById('theme-icon-dark');
+            const iconLight = document.getElementById('theme-icon-light');
+            const logo = document.getElementById('nav-logo');
+            const button = document.getElementById('mobile-menu-button');
+
+            if (iconDark && iconLight) {
+                if (theme === 'dark') {
+                    iconDark.classList.remove('hidden');
+                    iconLight.classList.add('hidden');
+                    
+                    // Initial logo state fix
+                    if (logo) {
+                        logo.classList.remove('text-gray-900');
+                        logo.classList.add('text-white');
+                    }
+                    if (button) {
+                        button.classList.remove('text-gray-700');
+                        button.classList.add('text-gray-300');
+                    }
+                } else {
+                    iconDark.classList.add('hidden');
+                    iconLight.classList.remove('hidden');
+
+                    // Initial logo state fix
+                    if (logo) {
+                        logo.classList.remove('text-white');
+                        logo.classList.add('text-gray-900');
+                    }
+                    if (button) {
+                        button.classList.remove('text-gray-300');
+                        button.classList.add('text-gray-700');
+                    }
+                }
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+            }
+        }
+
+        function toggleSocialDropdown() {
+            const dropdown = document.getElementById('socials-dropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('hidden');
+            }
+        }
+
+        // Run initialization when the page is fully loaded
+        window.onload = initializeApp;
+    </script>
+</body>
+</html>
