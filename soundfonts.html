@@ -61,11 +61,10 @@
 
         .nav-links a:hover { color: var(--accent); }
 
-        /* Container & Spacing */
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 20px; /* Increased top/bottom spacing */
+            padding: 60px 20px;
         }
 
         .section-title {
@@ -75,14 +74,13 @@
             letter-spacing: 1px;
         }
 
-        /* Card Styling */
         .sf-card {
             background: var(--box-bg);
             padding: 3rem;
             border-radius: 24px;
             border: 1px solid rgba(128, 128, 128, 0.1);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            margin-bottom: 50px; /* Space between the cards */
+            margin-bottom: 50px;
         }
 
         .sf-title {
@@ -117,6 +115,19 @@
             border-top: 1px solid rgba(128, 128, 128, 0.2);
         }
 
+        .sample-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        audio {
+            width: 100%;
+            margin-bottom: 20px;
+            height: 40px;
+        }
+
         .download-btn {
             display: inline-block;
             margin-top: 15px;
@@ -131,7 +142,6 @@
 
         .download-btn:hover { opacity: 0.8; }
 
-        /* Theme Switch */
         .theme-switch-wrapper { display: flex; align-items: center; }
         .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
         .theme-switch input { display: none; }
@@ -175,8 +185,16 @@
             <span class="tag private"><b>(PRIVATE)</b></span>
             
             <div class="media-area">
-                <p>Here is some samples from the normal piano and the bonus one:</p>
-                </div>
+                <span class="sample-label">Normal Piano Sample:</span>
+                <audio controls>
+                    <source src="Audio All I Want For Christmas Is You - Black MIDI by MBMS & Eddywaltz.mp3" type="audio/mpeg">
+                </audio>
+
+                <span class="sample-label">Bonus Piano Sample:</span>
+                <audio controls>
+                    <source src="[AUDIO Nerfed] Quadrianexium - The PokéFurry-Collab ~ Orangepaprika 67 & Danidanijr - 2025-12-16 194623.mp3" type="audio/mpeg">
+                </audio>
+            </div>
         </div>
 
         <div class="sf-card">
@@ -187,8 +205,11 @@
             <span class="tag private"><b>(PRIVATE)</b></span>
             
             <div class="media-area">
-                <p>Yeah here are some rendered files LMFAO:</p>
-                </div>
+                <span class="sample-label">Fish Sample (LMFAO):</span>
+                <audio controls>
+                    <source src="Audio Nerfed] When Ardi Faces Exams - 2025-12-29 003956.mp3" type="audio/mpeg">
+                </audio>
+            </div>
         </div>
 
         <div class="sf-card">
@@ -200,7 +221,7 @@
             
             <div class="media-area">
                 <p>Download the file here:</p>
-                <a href="#" class="download-btn">Download .sf2</a>
+                <a href="Drum FIX.sf2" download class="download-btn">Download .sf2</a>
             </div>
         </div>
 
