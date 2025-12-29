@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Info | VFATZs MIDIs</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --box-bg: #181818;
+            --text-primary: #eeeeee;
+            --text-secondary: #aaaaaa;
+            --accent: #00adb5;
+            --nav-bg: #1a1a1a;
+            --transition-speed: 0.5s;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f0f2f5;
+            --box-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent: #007d82;
+            --nav-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .device-card {
+            background: var(--box-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(128, 128, 128, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .device-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .device-image {
+            flex: 0 0 250px;
+            max-width: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .device-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .device-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .specs-container {
+            text-align: left;
+        }
+
+        .spec-item {
+            background: rgba(255, 255, 255, 0.03);
+            margin-bottom: 10px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Consolas', monospace;
+            font-size: 0.95rem;
+        }
+
+        [data-theme="light"] .spec-item {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .spec-label { color: var(--accent); font-weight: bold; }
+
+        .theme-switch-wrapper { display: flex; align-items: center; }
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(26px); }
+
+        @media (max-width: 768px) {
+            .device-card { flex-direction: column; text-align: center; }
+            .device-image { max-width: 220px; order: -1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="soundfonts.html">Soundfonts</a>
+            <a href="creations.html">Creations</a>
+            <a href="social.html">Social Media</a>
+            <a href="deviceinfo.html" style="color: var(--accent);">Device Info</a>
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="device-card">
+            <div class="device-text">
+                <h1 class="device-title">Lenovo AIO PC v310z</h1>
+                <div class="specs-container">
+                    <div class="spec-item"><span class="spec-label">CPU</span><span>i3-7100 @ 3.9GHz</span></div>
+                    <div class="spec-item"><span class="spec-label">RAM</span><span>8GB DDR4 2133MHz</span></div>
+                    <div class="spec-item"><span class="spec-label">GPU</span><span>HD Graphics 630</span></div>
+                    <div class="spec-item"><span class="spec-label">STORAGE</span><span>120GB SSD (111GB Net)</span></div>
+                    <div class="spec-item"><span class="spec-label">OS</span><span>Win 11 (Nano11)</span></div>
+                </div>
+            </div>
+            <div class="device-image">
+                <img src="s500z_len_desktop.jpg" alt="Lenovo AIO PC v310z">
+            </div>
+        </div>
+
+        <div class="device-card">
+            <div class="device-text">
+                <h1 class="device-title">Samsung Note 10</h1>
+                <div class="specs-container">
+                    <div class="spec-item"><span class="spec-label">CPU</span><span>Exynos 9825</span></div>
+                    <div class="spec-item"><span class="spec-label">RAM</span><span>8GB</span></div>
+                    <div class="spec-item"><span class="spec-label">STORAGE</span><span>256GB</span></div>
+                    <div class="spec-item"><span class="spec-label">TYPE</span><span>Mobile Device</span></div>
+                </div>
+            </div>
+            <div class="device-image">
+                <img src="images (8).jpeg" alt="Samsung Note 10">
+            </div>
+        </div>
+
+        <div class="device-card">
+            <div class="device-text">
+                <h1 class="device-title">Legacy Build</h1>
+                <div class="specs-container">
+                    <div class="spec-item"><span class="spec-label">CPU</span><span>Intel Pentium E5700</span></div>
+                    <div class="spec-item"><span class="spec-label">RAM</span><span>4GB DDR3 800MHz</span></div>
+                    <div class="spec-item"><span class="spec-label">GPU</span><span>GeForce 8400GS</span></div>
+                    <div class="spec-item"><span class="spec-label">STORAGE</span><span>1TB HDD</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }    
+        }
+        toggleSwitch.addEventListener('change', switchTheme, false);
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') toggleSwitch.checked = true;
+        }
+    </script>
+</body>
+</html>
