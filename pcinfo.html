@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Info | VFATZs MIDIs</title>
+    <style>
+        /* Shared Styles & Theme Variables */
+        :root {
+            --bg-color: #0f0f0f;
+            --box-bg: #181818;
+            --text-primary: #eeeeee;
+            --text-secondary: #aaaaaa;
+            --accent: #00adb5;
+            --nav-bg: #1a1a1a;
+            --transition-speed: 0.5s;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f0f2f5;
+            --box-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent: #007d82;
+            --nav-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Theme Switch */
+        .theme-switch-wrapper { display: flex; align-items: center; }
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(26px); }
+
+        /* PC Info Layout */
+        .container {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .pc-card {
+            max-width: 700px;
+            width: 100%;
+            background: var(--box-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(128, 128, 128, 0.1);
+            text-align: center;
+        }
+
+        .pc-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .specs-container {
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .spec-item {
+            background: rgba(0, 0, 0, 0.05);
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        [data-theme="dark"] .spec-item {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .spec-label {
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .spec-value {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 600px) {
+            .spec-item { flex-direction: column; }
+            .pc-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="soundfonts.html">Soundfonts</a>
+            <a href="creations.html">Creations</a>
+            <a href="social.html">Social Media</a>
+            <a href="pcinfo.html" style="color: var(--accent);">PC Info</a>
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="pc-card">
+            <h1 class="pc-title">Lenovo AIO PC v310z</h1>
+            
+            <div class="specs-container">
+                <div class="spec-item">
+                    <span class="spec-label">PROCESSOR</span>
+                    <span class="spec-value">i3-7100 @ 3.9GHz</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">MEMORY</span>
+                    <span class="spec-value">8GB DDR4 2133MHz</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">GRAPHICS</span>
+                    <span class="spec-value">HD Graphics 630</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">STORAGE</span>
+                    <span class="spec-value">120GB SSD (111GB Net)</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">SYSTEM</span>
+                    <span class="spec-value">Win 11 26H1 (Nano11)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        
+        // Theme switch logic
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }    
+        }
+        toggleSwitch.addEventListener('change', switchTheme, false);
+        
+        // Load saved theme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') toggleSwitch.checked = true;
+        }
+    </script>
+</body>
+</html>
