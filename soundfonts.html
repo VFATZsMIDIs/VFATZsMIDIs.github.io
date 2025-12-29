@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundfonts | VFATZs MIDIs</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --box-bg: #181818;
+            --text-primary: #eeeeee;
+            --text-secondary: #aaaaaa;
+            --accent: #00adb5;
+            --nav-bg: #1a1a1a;
+            --private: #ff4d4d;
+            --public: #00e676;
+            --transition-speed: 0.5s;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f0f2f5;
+            --box-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent: #007d82;
+            --nav-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Container & Spacing */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px; /* Increased top/bottom spacing */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* Card Styling */
+        .sf-card {
+            background: var(--box-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(128, 128, 128, 0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            margin-bottom: 50px; /* Space between the cards */
+        }
+
+        .sf-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-family: 'Consolas', monospace;
+        }
+
+        .sf-description {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .private { color: var(--private); border: 1px solid var(--private); }
+        .public { color: var(--public); border: 1px solid var(--public); }
+
+        .media-area {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(128, 128, 128, 0.2);
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: var(--public);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .download-btn:hover { opacity: 0.8; }
+
+        /* Theme Switch */
+        .theme-switch-wrapper { display: flex; align-items: center; }
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(26px); }
+
+        @media (max-width: 600px) {
+            .sf-card { padding: 1.5rem; }
+            .sf-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="soundfonts.html" style="color: var(--accent);">Soundfonts</a>
+            <a href="creations.html">Creations</a>
+            <a href="social.html">Social Media</a>
+            <a href="pcinfo.html">PC Info</a>
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">Soundfont Library</h1>
+        
+        <div class="sf-card">
+            <h2 class="sf-title">VFATZsPiano.sf2</h2>
+            <p class="sf-description">
+                Created in November 20th, 2025. I created this for standalone soundfont so no more other converter focusing on the first file. Latest one is v2.5.1 (BONUS). And no, I don't give it out to anyone so don't ask me.
+            </p>
+            <span class="tag private"><b>(PRIVATE)</b></span>
+            
+            <div class="media-area">
+                <p>Here is some samples from the normal piano and the bonus one:</p>
+                </div>
+        </div>
+
+        <div class="sf-card">
+            <h2 class="sf-title">VFATZs MIDIs fish_tmp.sf2</h2>
+            <p class="sf-description">
+                Created in December 29th, 2025. No explanation just me saying fish that's all.
+            </p>
+            <span class="tag private"><b>(PRIVATE)</b></span>
+            
+            <div class="media-area">
+                <p>Yeah here are some rendered files LMFAO:</p>
+                </div>
+        </div>
+
+        <div class="sf-card">
+            <h2 class="sf-title">Drum FIX.sf2</h2>
+            <p class="sf-description">
+                This one... Eh, this is just a Thai soundfont but I just focus on the drums so here you go. Enjoy.
+            </p>
+            <span class="tag public"><b>(Public)</b></span>
+            
+            <div class="media-area">
+                <p>Download the file here:</p>
+                <a href="#" class="download-btn">Download .sf2</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }    
+        }
+        toggleSwitch.addEventListener('change', switchTheme, false);
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') toggleSwitch.checked = true;
+        }
+    </script>
+</body>
+</html>
