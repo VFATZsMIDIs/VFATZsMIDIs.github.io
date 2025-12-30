@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creations | VFATZs MIDIs</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --box-bg: #181818;
+            --text-primary: #eeeeee;
+            --accent: #00adb5;
+            --nav-bg: #1a1a1a;
+            --glow-blue: #00d2ff;
+            --btn-green: #2ecc71;
+            --btn-yellow: #f1c40f;
+            --transition-speed: 0.5s;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f0f2f5;
+            --box-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --nav-bg: #ffffff;
+            --glow-blue: #007d82;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color var(--transition-speed), color var(--transition-speed); }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .nav-links a { color: var(--text-primary); text-decoration: none; margin: 0 15px; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+        .creation-card {
+            background: var(--box-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(128, 128, 128, 0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .creation-title { font-size: 2.2rem; margin-bottom: 15px; color: var(--accent); text-transform: uppercase; }
+        .creation-desc { font-size: 1.1rem; margin-bottom: 20px; }
+
+        .glow-link {
+            color: var(--glow-blue);
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 0 0 8px var(--glow-blue);
+        }
+
+        .oc-link { color: var(--accent); text-decoration: none; font-weight: bold; border-bottom: 1px dashed var(--accent); }
+        .oc-link:hover { color: #fff; border-bottom: 1px solid #fff; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #000;
+            margin-top: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-green { background-color: var(--btn-green); }
+        .btn-yellow { background-color: var(--btn-yellow); }
+        .btn:hover { opacity: 0.8; }
+
+        .tooltip-container { position: relative; display: inline-block; }
+        .tooltip-text {
+            visibility: hidden; width: 180px; background-color: #333; color: #fff;
+            text-align: center; border-radius: 8px; padding: 8px; position: absolute;
+            z-index: 1; bottom: 135%; left: 50%; margin-left: -90px; opacity: 0;
+            transition: opacity 0.3s; font-size: 0.85rem; border: 1px solid var(--glow-blue);
+        }
+        .tooltip-container:hover .tooltip-text { visibility: visible; opacity: 1; }
+
+        .theme-switch-wrapper { display: flex; align-items: center; }
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(26px); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="soundfonts.html">Soundfonts</a>
+        <a href="creations.html" style="color: var(--accent);">Creations</a>
+        <a href="social.html">Social Media</a>
+        <a href="deviceinfo.html">Device Info</a>
+    </div>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider"></div>
+        </label>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 style="text-align: center; margin-bottom: 40px;">My Creations</h1>
+
+    <div class="creation-card">
+        <h2 class="creation-title">Flamewall</h2>
+        <p class="creation-desc">
+            A Collab between me and 
+            <span class="tooltip-container">
+                <a href="https://www.youtube.com/@nicolasroche4290" target="_blank" class="glow-link">Nicolas Roche</a>
+                <span class="tooltip-text">sub to him, he is awesome :3</span>
+            </span>, 
+            With over [REDACTED] Notes. <a href="https://www.youtube.com/watch?v=aYKN5_b7yVo" target="_blank" class="glow-link">Original Song</a>
+        </p>
+        <div class="btn btn-yellow">Working In Progress... Please Wait.</div>
+    </div>
+
+    <div class="creation-card">
+        <h2 class="creation-title">Fall From The Sky PT.2</h2>
+        <p class="creation-desc">
+            OC: <a href="https://www.youtube.com/watch?v=Cpc1akSzjPY" target="_blank" class="oc-link">RomancePlanet</a>. 
+            I actually created this in November 9th, 2025. 8 Million Notes.
+        </p>
+        <a href="https://drive.google.com/file/d/1nZ0IJW2ermtuLK4VgtQL1sTqvvGahJj6/view?usp=drive_link" target="_blank" class="btn btn-green">Download MIDI</a>
+    </div>
+
+    <div class="creation-card">
+        <h2 class="creation-title">Cupid</h2>
+        <p class="creation-desc">
+            OC: <a href="https://www.youtube.com/watch?v=Qc7_zRjH808" target="_blank" class="oc-link">FIFTY FIFTY</a>. 
+            I created this in February 15, 2025. 10 Million Notes.
+        </p>
+        <a href="https://drive.google.com/file/d/1MgisoqkN5bQIAjteQ26yMl6qdAIa5253/view?usp=sharing" target="_blank" class="btn btn-green">Download MIDI</a>
+    </div>
+
+    <div class="creation-card">
+        <h2 class="creation-title">VFATZs MIDIs's Lag Tester</h2>
+        <p class="creation-desc">
+            I Created this in March 18th, 2025. I bet you can't do a legit run on it >:D 3.2 Billion Notes.
+        </p>
+        <a href="https://drive.google.com/file/d/1J0yczW5kBsf9pv4ms5bk7C4cQeS87y-l/view?usp=drive_link" target="_blank" class="btn btn-green">Download MIDI</a>
+    </div>
+
+    <div class="creation-card">
+        <h2 class="creation-title">Songkran</h2>
+        <p class="creation-desc">
+            Removed, Will recreate the file soon. April 14th, 2026.
+        </p>
+        <div class="btn btn-yellow">Unavailable. Sorry!</div>
+    </div>
+
+    <div class="creation-card">
+        <h2 class="creation-title">Stand by Handsome</h2>
+        <p class="creation-desc">
+            OC: <a href="https://www.youtube.com/watch?v=uxvAQbX0nSI" target="_blank" class="oc-link">New Country</a>. 
+            A random Thai song I've created. May 3rd, 2025.
+        </p>
+        <a href="https://drive.google.com/file/d/12pDdVcUAu3d6Uz2ITRuACawmOdLrP4Oy/view?usp=drive_link" target="_blank" class="btn btn-green">Download MIDI</a>
+    </div>
+
+    <div class="creation-card">
+        <h2 class="creation-title">Tetoris</h2>
+        <p class="creation-desc">
+            OC: <a href="https://www.youtube.com/watch?v=Soy4jGPHr3g" target="_blank" class="oc-link">Hiiragi Magnetite</a>. 
+            I am going to rework on it soon :P
+        </p>
+        <a href="https://drive.google.com/file/d/1rc7DceSxUDLhhlN5JIKsgCQMAOACj9YI/view?usp=drive_link" target="_blank" class="btn btn-green">Download MIDI</a>
+    </div>
+
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }    
+    }
+    toggleSwitch.addEventListener('change', switchTheme, false);
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'light') toggleSwitch.checked = true;
+    }
+</script>
+</body>
+</html>
