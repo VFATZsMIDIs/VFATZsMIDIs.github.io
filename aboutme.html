@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | VFATZs MIDIs</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --box-bg: #181818;
+            --text-primary: #eeeeee;
+            --text-secondary: #aaaaaa;
+            --accent: #00adb5;
+            --nav-bg: #1a1a1a;
+            --glow-blue: #00d2ff;
+            --btn-green: #2ecc71;
+            --btn-yellow: #f1c40f;
+            --transition-speed: 0.5s;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f0f2f5;
+            --box-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent: #007d82;
+            --nav-bg: #ffffff;
+            --glow-blue: #007d82;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color var(--transition-speed), color var(--transition-speed); }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .nav-links a { color: var(--text-primary); text-decoration: none; margin: 0 15px; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+
+        .about-card {
+            background: var(--box-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .about-card::before {
+            content: "USER_PROFILE: VFATZ_MIDIS";
+            display: block;
+            font-family: 'Consolas', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+
+        .title-main { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            color: var(--accent); 
+            text-transform: uppercase; 
+            font-family: 'Consolas', monospace;
+            letter-spacing: 2px;
+        }
+
+        .bio-text { font-size: 1.15rem; margin-bottom: 25px; }
+
+        .goal-section { margin: 30px 0; }
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 12px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid rgba(128,128,128,0.2);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, var(--accent), var(--glow-blue));
+            height: 100%;
+            border-radius: 10px;
+            width: 15%; 
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .interest-item {
+            background: rgba(128, 128, 128, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            text-align: center;
+        }
+        .interest-label { font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase; display: block; }
+        .interest-value { font-weight: bold; font-size: 1rem; }
+
+        /* Favorite MIDIs List */
+        .fav-list {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+        }
+        .fav-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(128,128,128,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .fav-item:last-child { border-bottom: none; }
+        .fav-info { display: flex; align-items: center; }
+        .fav-rank {
+            font-family: 'Consolas', monospace;
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .yt-link {
+            color: #ff0000;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .yt-link:hover {
+            background: #ff0000;
+            color: white;
+        }
+
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(26px); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-links">
+        <a href="vfatzsmidis.github.io/index.html">Home</a>
+        <a href="vfatzsmidis.github.io/soundfonts.html">Soundfonts</a>
+        <a href="vfatzsmidis.github.io/creations.html">Creations</a>
+        <a href="vfatzsmidis.github.io/aboutme.html" style="color: var(--accent);">About Me</a>
+        <a href="vfatzsmidis.github.io/social.html">Social Media</a>
+        <a href="vfatzsmidis.github.io/deviceinfo.html">Device Info</a>
+    </div>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider"></div>
+        </label>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="about-card">
+        <h1 class="title-main">Who Am I?</h1>
+        
+        <p class="bio-text">
+            Hello, I am <strong>VFATZs MIDIs!</strong> :) I am a Thailand ADHD Dude who likes to do shit because he is dumb :3 🇹🇭
+        </p>
+
+        <p class="bio-text">
+            I make black midi, currently 1 year in BMC. I like techy things :P
+            I started Black MIDI in July 2024, then stopped until December 27th 2024... until now.
+        </p>
+
+        <div class="goal-section">
+            <h3 style="color: var(--btn-yellow);">Main Goals:</h3>
+            <ul style="list-style: none; margin: 15px 0;">
+                <li>🎹 Get <strong>QSP-X Keys</strong> without begging for it</li>
+                <li>🛡️ Get trusted in the community</li>
+                <li>🎯 Reach 100k subs and my first Play Button</li>
+            </ul>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Sub Goal Progress</p>
+        </div>
+
+        <div class="interest-grid">
+            <div class="interest-item" style="border-color: #ff00ff;">
+                <span class="interest-label">I Like</span>
+                <span class="interest-value">Furries >:3</span>
+            </div>
+            <div class="interest-item">
+                <span class="interest-label">I Like</span>
+                <span class="interest-value">Tech</span>
+            </div>
+            <div class="interest-item" style="border-color: var(--btn-green);">
+                <span class="interest-label">I Like</span>
+                <span class="interest-value">Black MIDI</span>
+            </div>
+        </div>
+
+        <div class="fav-list">
+            <h3 style="color: var(--accent); margin-bottom: 15px; font-family: 'Consolas', monospace;">[ TOP 3 FAVORITE MIDIs ]</h3>
+            
+            <div class="fav-item">
+                <div class="fav-info">
+                    <span class="fav-rank">01</span>
+                    <div>
+                        <strong>Quadrianexium</strong><br>
+                        <small style="color: var(--text-secondary);">Danidanijr & Orangepaprika</small>
+                    </div>
+                </div>
+                <a href="https://youtu.be/fy6FDdHyI7Q?si=1NNDEGHxnHitwwOH" target="_blank" class="yt-link">WATCH</a>
+            </div>
+
+            <div class="fav-item">
+                <div class="fav-info">
+                    <span class="fav-rank">02</span>
+                    <div>
+                        <strong>When Ardi Faces Exam</strong><br>
+                        <small style="color: var(--text-secondary);">Ardi BMI Official</small>
+                    </div>
+                </div>
+                <a href="https://youtu.be/AJKwVxiFqBw?si=P-mV7pjixbF2xx7s" target="_blank" class="yt-link">WATCH</a>
+            </div>
+
+            <div class="fav-item">
+                <div class="fav-info">
+                    <span class="fav-rank">03</span>
+                    <div>
+                        <strong>When Nicolas Isn't home 3</strong><br>
+                        <small style="color: var(--text-secondary);">Nicolas Roche</small>
+                    </div>
+                </div>
+                <a href="https://youtu.be/tWl-azTiDQM?si=tj5rzr9KDutxE3-X" target="_blank" class="yt-link">WATCH</a>
+            </div>
+        </div>
+
+        <p style="margin-top: 50px; text-align: center; font-family: 'Consolas', monospace; color: var(--accent);">
+            And goodbye my fellow subscribers :3
+        </p>
+    </div>
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    toggleSwitch.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.checked ? 'light' : 'dark');
+        localStorage.setItem('theme', e.target.checked ? 'light' : 'dark');
+    }, false);
+    
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'light') toggleSwitch.checked = true;
+    }
+</script>
+</body>
+</html>
