@@ -134,6 +134,44 @@
             box-shadow: 0 0 15px var(--accent);
         }
 
+        .friends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .friend-item {
+            background: rgba(128, 128, 128, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .friend-item:hover {
+            border-color: var(--accent);
+            background: rgba(0, 173, 181, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .friend-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
         .interest-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -300,6 +338,19 @@
                     </div>
                 </div>
                 <a href="https://www.youtube.com/watch?v=tWl-azTiDQM" target="_blank" class="yt-link">WATCH</a>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <h3 style="color: var(--glow-blue); font-family: 'Consolas', monospace;">[ FRIENDS ]</h3>
+            <div class="friends-grid">
+                <a href="https://www.youtube.com/@nicolasroche4290" target="_blank" class="friend-item">
+                    <div class="friend-avatar">NR</div>
+                    <div>
+                        <div style="font-weight: bold; font-size: 0.9rem;">Nicolas Roche</div>
+                        <div style="font-size: 0.7rem; color: var(--text-secondary);">Awesome MIDI Creator</div>
+                    </div>
+                </a>
             </div>
         </div>
 
