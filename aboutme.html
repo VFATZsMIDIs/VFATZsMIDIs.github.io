@@ -28,7 +28,12 @@
             --glow-blue: #007d82;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color var(--transition-speed), color var(--transition-speed); }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            transition: background-color var(--transition-speed), color var(--transition-speed); 
+        }
 
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
@@ -45,13 +50,27 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--accent);
-            position: sticky; top: 0; z-index: 1000;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
         }
 
-        .nav-links a { color: var(--text-primary); text-decoration: none; margin: 0 15px; font-weight: 500; }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a { 
+            color: var(--text-primary); 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-weight: 500; 
+        }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .nav-links a:hover { 
+            color: var(--accent); 
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
 
         .about-card {
             background: var(--box-bg);
@@ -83,22 +102,35 @@
             letter-spacing: 2px;
         }
 
-        .bio-text { font-size: 1.15rem; margin-bottom: 25px; }
+        .bio-text { 
+            font-size: 1.15rem; 
+            margin-bottom: 25px; 
+        }
 
-        .goal-section { margin: 30px 0; }
+        .goal-section { 
+            margin: 30px 0; 
+        }
+        
+        .progress-label-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 5px;
+        }
+
         .progress-container {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             height: 12px;
-            margin: 10px 0;
+            margin: 5px 0 15px 0;
             width: 100%;
             border: 1px solid rgba(128,128,128,0.2);
         }
+
         .progress-bar {
             background: linear-gradient(90deg, var(--accent), var(--glow-blue));
             height: 100%;
             border-radius: 10px;
-            width: 15%; 
             box-shadow: 0 0 15px var(--accent);
         }
 
@@ -108,6 +140,7 @@
             gap: 15px;
             margin-top: 30px;
         }
+
         .interest-item {
             background: rgba(128, 128, 128, 0.05);
             padding: 15px;
@@ -115,8 +148,18 @@
             border-left: 4px solid var(--accent);
             text-align: center;
         }
-        .interest-label { font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase; display: block; }
-        .interest-value { font-weight: bold; font-size: 1rem; }
+
+        .interest-label { 
+            font-size: 0.7rem; 
+            color: var(--text-secondary); 
+            text-transform: uppercase; 
+            display: block; 
+        }
+
+        .interest-value { 
+            font-weight: bold; 
+            font-size: 1rem; 
+        }
 
         /* Favorite MIDIs List */
         .fav-list {
@@ -125,6 +168,7 @@
             background: rgba(0,0,0,0.2);
             border-radius: 15px;
         }
+
         .fav-item {
             padding: 15px 0;
             border-bottom: 1px solid rgba(128,128,128,0.2);
@@ -132,8 +176,16 @@
             align-items: center;
             justify-content: space-between;
         }
-        .fav-item:last-child { border-bottom: none; }
-        .fav-info { display: flex; align-items: center; }
+
+        .fav-item:last-child { 
+            border-bottom: none; 
+        }
+
+        .fav-info { 
+            display: flex; 
+            align-items: center; 
+        }
+
         .fav-rank {
             font-family: 'Consolas', monospace;
             color: var(--accent);
@@ -141,6 +193,7 @@
             margin-right: 15px;
             font-weight: bold;
         }
+
         .yt-link {
             color: #ff0000;
             text-decoration: none;
@@ -151,29 +204,67 @@
             border-radius: 5px;
             transition: 0.3s;
         }
-        .yt-link:hover {
-            background: #ff0000;
-            color: white;
+
+        .yt-link:hover { 
+            background: #ff0000; 
+            color: white; 
         }
 
-        .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
-        .theme-switch input { display: none; }
-        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
-        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
-        input:checked + .slider { background-color: var(--accent); }
-        input:checked + .slider:before { transform: translateX(26px); }
+        /* Theme Switcher */
+        .theme-switch { 
+            display: inline-block; 
+            height: 24px; 
+            position: relative; 
+            width: 50px; 
+        }
+
+        .theme-switch input { 
+            display: none; 
+        }
+
+        .slider { 
+            background-color: #ccc; 
+            bottom: 0; 
+            cursor: pointer; 
+            left: 0; 
+            position: absolute; 
+            right: 0; 
+            top: 0; 
+            transition: .4s; 
+            border-radius: 34px; 
+        }
+
+        .slider:before { 
+            background-color: #fff; 
+            bottom: 4px; 
+            content: ""; 
+            height: 16px; 
+            left: 4px; 
+            position: absolute; 
+            transition: .4s; 
+            width: 16px; 
+            border-radius: 50%; 
+        }
+
+        input:checked + .slider { 
+            background-color: var(--accent); 
+        }
+
+        input:checked + .slider:before { 
+            transform: translateX(26px); 
+        }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-links">
-        <a href="vfatzsmidis.github.io/index.html">Home</a>
-        <a href="vfatzsmidis.github.io/soundfonts.html">Soundfonts</a>
-        <a href="vfatzsmidis.github.io/creations.html">Creations</a>
-        <a href="vfatzsmidis.github.io/aboutme.html" style="color: var(--accent);">About Me</a>
-        <a href="vfatzsmidis.github.io/social.html">Social Media</a>
-        <a href="vfatzsmidis.github.io/deviceinfo.html">Device Info</a>
+        <a href="index.html">Home</a>
+        <a href="soundfonts.html">Soundfonts</a>
+        <a href="creations.html">Creations</a>
+        <a href="aboutme.html" style="color: var(--accent);">About Me</a>
+        <a href="social.html">Social Media</a>
+        <a href="deviceinfo.html">Device Info</a>
     </div>
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -196,15 +287,27 @@
             I started Black MIDI in July 2024, then stopped until December 27th 2024... until now.
         </p>
 
+        <div class="goal-section" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 15px; border: 1px solid rgba(0, 173, 181, 0.3);">
+            <h3 style="color: var(--glow-blue); font-size: 1.1rem; margin-bottom: 10px; font-family: 'Consolas', monospace;">[ VIDEO EDITING ]</h3>
+            <div class="progress-label-flex">
+                <span>AviUtl (9 Months)</span>
+                <span style="font-size: 0.8rem; color: var(--btn-yellow);">Skill: Medium</span>
+            </div>
+            <div class="progress-container"><div class="progress-bar" style="width: 55%;"></div></div>
+            <p style="font-size: 0.85rem; font-style: italic; color: var(--text-secondary);">Currently learning: Camera Control 🎥</p>
+        </div>
+
         <div class="goal-section">
             <h3 style="color: var(--btn-yellow);">Main Goals:</h3>
             <ul style="list-style: none; margin: 15px 0;">
-                <li>🎹 Get <strong>QSP-X Keys</strong> without begging for it</li>
-                <li>🛡️ Get trusted in the community</li>
-                <li>🎯 Reach 100k subs and my first Play Button</li>
+                <li style="margin-bottom: 5px;">🎹 Get <strong>QSP-X Keys</strong> without begging for it</li>
+                <li style="margin-bottom: 5px;">🛡️ Get trusted in the community</li>
+                <li style="margin-bottom: 5px;">🎯 Reach 100k subs and my first Play Button</li>
             </ul>
-            <div class="progress-container"><div class="progress-bar"></div></div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Sub Goal Progress</p>
+            <div class="progress-label-flex">
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Subscriber Progress (Goal: 100k)</span>
+            </div>
+            <div class="progress-container"><div class="progress-bar" style="width: 15%;"></div></div>
         </div>
 
         <div class="interest-grid">
@@ -233,7 +336,7 @@
                         <small style="color: var(--text-secondary);">Danidanijr & Orangepaprika</small>
                     </div>
                 </div>
-                <a href="https://youtu.be/fy6FDdHyI7Q?si=1NNDEGHxnHitwwOH" target="_blank" class="yt-link">WATCH</a>
+                <a href="https://www.youtube.com/watch?v=D-Yv4u6rFos" target="_blank" class="yt-link">WATCH</a>
             </div>
 
             <div class="fav-item">
@@ -244,7 +347,7 @@
                         <small style="color: var(--text-secondary);">Ardi BMI Official</small>
                     </div>
                 </div>
-                <a href="https://youtu.be/AJKwVxiFqBw?si=P-mV7pjixbF2xx7s" target="_blank" class="yt-link">WATCH</a>
+                <a href="https://www.youtube.com/watch?v=I6BwW9rO7mU" target="_blank" class="yt-link">WATCH</a>
             </div>
 
             <div class="fav-item">
@@ -255,28 +358,41 @@
                         <small style="color: var(--text-secondary);">Nicolas Roche</small>
                     </div>
                 </div>
-                <a href="https://youtu.be/tWl-azTiDQM?si=tj5rzr9KDutxE3-X" target="_blank" class="yt-link">WATCH</a>
+                <a href="https://www.youtube.com/watch?v=M99F7W5L_jI" target="_blank" class="yt-link">WATCH</a>
             </div>
         </div>
 
-        <p style="margin-top: 50px; text-align: center; font-family: 'Consolas', monospace; color: var(--accent);">
+        <p style="margin-top: 50px; text-align: center; font-family: 'Consolas', monospace; color: var(--accent); font-weight: bold;">
             And goodbye my fellow subscribers :3
         </p>
     </div>
 </div>
 
 <script>
+    // Theme Toggler Logic
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    toggleSwitch.addEventListener('change', (e) => {
-        document.documentElement.setAttribute('data-theme', e.target.checked ? 'light' : 'dark');
-        localStorage.setItem('theme', e.target.checked ? 'light' : 'dark');
-    }, false);
     
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    // Check for saved theme preference
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'light') toggleSwitch.checked = true;
+        if (currentTheme === 'light') {
+            toggleSwitch.checked = true;
+        }
     }
 </script>
+
 </body>
 </html>
