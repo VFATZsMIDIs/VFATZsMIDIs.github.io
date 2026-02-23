@@ -107,8 +107,8 @@
             margin-bottom: 25px; 
         }
 
-        .goal-section { 
-            margin: 30px 0; 
+        .section-box {
+            margin: 25px 0;
         }
         
         .progress-label-flex {
@@ -161,7 +161,6 @@
             font-size: 1rem; 
         }
 
-        /* Favorite MIDIs List */
         .fav-list {
             margin-top: 30px;
             padding: 20px;
@@ -177,14 +176,9 @@
             justify-content: space-between;
         }
 
-        .fav-item:last-child { 
-            border-bottom: none; 
-        }
+        .fav-item:last-child { border-bottom: none; }
 
-        .fav-info { 
-            display: flex; 
-            align-items: center; 
-        }
+        .fav-info { display: flex; align-items: center; }
 
         .fav-rank {
             font-family: 'Consolas', monospace;
@@ -205,54 +199,14 @@
             transition: 0.3s;
         }
 
-        .yt-link:hover { 
-            background: #ff0000; 
-            color: white; 
-        }
+        .yt-link:hover { background: #ff0000; color: white; }
 
-        /* Theme Switcher */
-        .theme-switch { 
-            display: inline-block; 
-            height: 24px; 
-            position: relative; 
-            width: 50px; 
-        }
-
-        .theme-switch input { 
-            display: none; 
-        }
-
-        .slider { 
-            background-color: #ccc; 
-            bottom: 0; 
-            cursor: pointer; 
-            left: 0; 
-            position: absolute; 
-            right: 0; 
-            top: 0; 
-            transition: .4s; 
-            border-radius: 34px; 
-        }
-
-        .slider:before { 
-            background-color: #fff; 
-            bottom: 4px; 
-            content: ""; 
-            height: 16px; 
-            left: 4px; 
-            position: absolute; 
-            transition: .4s; 
-            width: 16px; 
-            border-radius: 50%; 
-        }
-
-        input:checked + .slider { 
-            background-color: var(--accent); 
-        }
-
-        input:checked + .slider:before { 
-            transform: translateX(26px); 
-        }
+        .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
+        .theme-switch input { display: none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
+        .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(26px); }
     </style>
 </head>
 <body>
@@ -287,7 +241,7 @@
             I started Black MIDI in July 2024, then stopped until December 27th 2024... until now.
         </p>
 
-        <div class="goal-section" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 15px; border: 1px solid rgba(0, 173, 181, 0.3);">
+        <div class="section-box" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 15px; border: 1px solid rgba(0, 173, 181, 0.3);">
             <h3 style="color: var(--glow-blue); font-size: 1.1rem; margin-bottom: 10px; font-family: 'Consolas', monospace;">[ VIDEO EDITING ]</h3>
             <div class="progress-label-flex">
                 <span>AviUtl (9 Months)</span>
@@ -295,19 +249,6 @@
             </div>
             <div class="progress-container"><div class="progress-bar" style="width: 55%;"></div></div>
             <p style="font-size: 0.85rem; font-style: italic; color: var(--text-secondary);">Currently learning: Camera Control 🎥</p>
-        </div>
-
-        <div class="goal-section">
-            <h3 style="color: var(--btn-yellow);">Main Goals:</h3>
-            <ul style="list-style: none; margin: 15px 0;">
-                <li style="margin-bottom: 5px;">🎹 Get <strong>QSP-X Keys</strong> without begging for it</li>
-                <li style="margin-bottom: 5px;">🛡️ Get trusted in the community</li>
-                <li style="margin-bottom: 5px;">🎯 Reach 100k subs and my first Play Button</li>
-            </ul>
-            <div class="progress-label-flex">
-                <span style="font-size: 0.8rem; color: var(--text-secondary);">Subscriber Progress (Goal: 100k)</span>
-            </div>
-            <div class="progress-container"><div class="progress-bar" style="width: 15%;"></div></div>
         </div>
 
         <div class="interest-grid">
@@ -362,16 +303,31 @@
             </div>
         </div>
 
-        <p style="margin-top: 50px; text-align: center; font-family: 'Consolas', monospace; color: var(--accent); font-weight: bold;">
+        <div class="section-box" style="margin-top: 40px;">
+            <h3 style="color: var(--btn-yellow); margin-bottom: 10px; font-family: 'Consolas', monospace;">[ MISSION STATUS ]</h3>
+            <ul style="list-style: none; margin-bottom: 20px;">
+                <li style="margin-bottom: 5px;">🎹 Get <strong>QSP-X Keys</strong> without begging</li>
+                <li style="margin-bottom: 5px;">🛡️ Get trusted in the community</li>
+                <li style="margin-bottom: 5px;">🎯 Reach 100k subs and my first Play Button</li>
+            </ul>
+            
+            <div class="progress-label-flex">
+                <span style="font-size: 0.9rem; font-weight: bold;">Subscribers: 262</span>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">Goal: 100,000</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 2%;"></div>
+            </div>
+        </div>
+
+        <p style="margin-top: 30px; text-align: center; font-family: 'Consolas', monospace; color: var(--accent); font-weight: bold;">
             And goodbye my fellow subscribers :3
         </p>
     </div>
 </div>
 
 <script>
-    // Theme Toggler Logic
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    
     function switchTheme(e) {
         if (e.target.checked) {
             document.documentElement.setAttribute('data-theme', 'light');
@@ -381,16 +337,11 @@
             localStorage.setItem('theme', 'dark');
         }    
     }
-
     toggleSwitch.addEventListener('change', switchTheme, false);
-
-    // Check for saved theme preference
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'light') {
-            toggleSwitch.checked = true;
-        }
+        if (currentTheme === 'light') toggleSwitch.checked = true;
     }
 </script>
 
