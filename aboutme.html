@@ -304,6 +304,20 @@
             </div>
         </div>
 
+        <div class="section-box" style="margin-top: 40px;">
+            <h3 style="color: var(--accent); margin-bottom: 5px; font-family: 'Consolas', monospace;">[ FRIENDS ]</h3>
+            <div class="friends-grid">
+                <a href="#" target="_blank" class="friend-item">
+                    <div class="friend-avatar">AB</div>
+                    <span>Ardi BMI Official</span>
+                </a>
+                <a href="#" target="_blank" class="friend-item">
+                    <div class="friend-avatar">NR</div>
+                    <span>Nicolas Roche</span>
+                </a>
+            </div>
+        </div>
+
         <div class="fav-list">
             <h3 style="color: var(--accent); margin-bottom: 15px; font-family: 'Consolas', monospace;">[ TOP 4 FAVORITE MIDIs ]</h3>
             
@@ -361,12 +375,13 @@
             </ul>
             
             <div class="progress-label-flex">
-                <span style="font-size: 0.9rem; font-weight: bold;">Subscribers: 400</span>
+                <span id="sub-count" style="font-size: 0.9rem; font-weight: bold;">Subscribers: 400</span>
                 <span style="font-size: 0.8rem; color: var(--text-secondary);">Goal: 100,000</span>
             </div>
             <div class="progress-container">
-                <div class="progress-bar" style="width: 2%;"></div>
+                <div id="sub-progress-bar" class="progress-bar" style="width: 2%;"></div>
             </div>
+            <p id="sub-status" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;"></p>
         </div>
 
         <p style="margin-top: 30px; text-align: center; font-family: 'Consolas', monospace; color: var(--accent); font-weight: bold;">
@@ -392,6 +407,49 @@
         document.documentElement.setAttribute('data-theme', currentTheme);
         if (currentTheme === 'light') toggleSwitch.checked = true;
     }
+</script>
+
+<script>
+    const YOUTUBE_API_KEY = "AIzaSyA3gHqsqx9CTqwjEciIAg33zgpHOHo79Sg";
+    const CHANNEL_ID = "UCLxsPfirLrkJ_DR0YWOji1Q";
+    const SUB_GOAL = 100000;
+    const REFRESH_MS = 5 * 60 * 1000; // refresh every 5 minutes
+
+    async function updateSubscriberCount() {
+        const countEl = document.getElementById('sub-count');
+        const barEl = document.getElementById('sub-progress-bar');
+        const statusEl = document.getElementById('sub-status');
+
+        if (YOUTUBE_API_KEY === "YOUR_API_KEY_HERE" || CHANNEL_ID === "YOUR_CHANNEL_ID_HERE") {
+            if (statusEl) statusEl.textContent = "(add your API key + channel ID in the script to go live)";
+            return;
+        }
+
+        try {
+            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`API error ${res.status}`);
+            const data = await res.json();
+            const stats = data.items && data.items[0] && data.items[0].statistics;
+            if (!stats) throw new Error("No stats returned");
+
+            const subs = parseInt(stats.subscriberCount, 10);
+            const pct = Math.min(100, (subs / SUB_GOAL) * 100);
+
+            countEl.textContent = `Subscribers: ${subs.toLocaleString()}`;
+            barEl.style.width = `${pct}%`;
+            if (statusEl) {
+                const now = new Date();
+                statusEl.textContent = `Live • updated ${now.toLocaleTimeString()}`;
+            }
+        } catch (err) {
+            console.error("Subscriber count fetch failed:", err);
+            if (statusEl) statusEl.textContent = "(live update failed, showing last known count)";
+        }
+    }
+
+    updateSubscriberCount();
+    setInterval(updateSubscriberCount, REFRESH_MS);
 </script>
 
 </body>
